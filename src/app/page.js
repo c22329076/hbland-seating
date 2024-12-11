@@ -1,9 +1,13 @@
 'use client'
 import { useState } from 'react';
 import * as XLSX from "xlsx/xlsx";
+//import { useRouter } from 'next/navigation'
 
 export default function Home() {
   const [user, setUser] = useState(null);
+//  const router = useRouter()
+
+//  router.push('/login')
 
   const handleLogin = (role) => {
     setUser({ role });
@@ -113,11 +117,13 @@ function OfficeLayout({ user }) {
       </ul>
       {isAdmin && (
         <div className="switch-group">
-{/*          <button onClick={handleExport} className="other-button">生成程式檔</button>
+          {/*
+          <button onClick={handleExport} className="other-button">生成程式檔</button>
           <label className="other-button">
           <input type="file" accept=".json" className="input-file-button" onChange={handleImport} />
           <p className="text-middle">上傳Json檔</p>
-          </label>*/}
+          </label>
+          */}
           <button onClick={handleExportToExcel} className="other-button">生成Excel</button>
           <label className="other-button">
             <input type="file" accept=".xlsx" className="input-file-button" onChange={handleImportFromExcel} id="input_file" />
@@ -165,7 +171,7 @@ function OfficeLayout({ user }) {
               <label>
                 科室：
                 <input
-                  placeholder="輸入科室"
+                  placeholder="輸入課室"
                   type="text"
                   value={selectedPerson.department}
                   onChange={(e) => handleEdit('department', e.target.value)}
@@ -231,7 +237,7 @@ function OfficeLayout({ user }) {
                 <p>分機：{selectedPerson.extension}</p>
               )}
               {selectedPerson.department &&(
-                <p>科室：{selectedPerson.department}</p>
+                <p>課室：{selectedPerson.department}</p>
               )}
               {selectedPerson.task &&(
                 <p>工作內容：{selectedPerson.task}</p>
