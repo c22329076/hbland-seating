@@ -3,15 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
+    "deploy:start": "pm2 startOrRestart ecosystem.config.js",
     "lint": "next lint"
   },
   "dependencies": {
+    "activedirectory2": "^2.2.0",
+    "dotenv": "^16.4.7",
+    "dtrace-provider": "^0.8.8",
+    "jsonwebtoken": "^9.0.2",
+    "ldap-authentication": "^3.2.4",
+    "mssql": "^11.0.1",
+    "net": "^1.0.2",
     "next": "15.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "tls": "^0.0.1",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
