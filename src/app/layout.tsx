@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "座位表",
+  title: "中壢地政事務所座位表",
   description: "中壢地政事務所座位表",
 };
 

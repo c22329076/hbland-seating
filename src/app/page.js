@@ -1,13 +1,40 @@
 'use client'
-import { useState } from 'react';
+import { useCheckLogin } from '@/utils/useCheckLogin.js';
+import { useContext, useEffect, useState } from 'react';
 import * as XLSX from "xlsx/xlsx";
-//import { useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+import { AuthContext } from '@/context/AuthProvider';
+import { AuthProvider } from '@/context/AuthProvider';
 
 export default function Home() {
-  const [user, setUser] = useState(null);
-//  const router = useRouter()
+  return (
+          <HomePage />
+  );
+}
 
-//  router.push('/login')
+function HomePage() {
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
+  const [user, setUser] = useState(null);
+  const verified = useCheckLogin();
+  const router = useRouter();
+  let admin;
+
+  useEffect(() => {
+    fetch('/api/verifyLogin')
+        .then(res => {
+            return res.json();
+        })
+        .then(({ valid, username, isManager }) => {
+            setIsAuthChecked(true);
+
+            if (valid) {
+                setAuth(username);
+                setIsManager(isManager);
+            }
+        })
+}, [])
+
+  const [ auth, setAuth, isManager, setIsManager ] = useContext(AuthContext);
 
   const handleLogin = (role) => {
     setUser({ role });
@@ -16,7 +43,7 @@ export default function Home() {
   return (
     <div>
       {!user ? (
-        <h1>登入
+        <h1>選擇權限頁面
         <div className='login'>
           <button onClick={() => handleLogin('user')} className="other-button">一般登入</button>
           <button onClick={() => handleLogin('admin')} className="other-button">管理者登入</button>
@@ -105,6 +132,16 @@ function OfficeLayout({ user }) {
     document.getElementById('input_file').value= null;
   };
 
+  const onSignoutClicked= (event) => {
+    fetch('/api/logout').then(res => res.json())
+        .then(() => {
+            setAuth('');
+            router.push('/login');
+        })
+        console.log("user logout!");
+        location.reload();//重新整理 我作弊==
+      };
+
   return (
     <div>
       <h1>中壢地政事務所 座位表</h1>
@@ -114,6 +151,7 @@ function OfficeLayout({ user }) {
         <li onClick={() => handleLoadJson(3)} className="switch-seat-button" style={{top: "33vh"}}>三樓座位表</li>
         <li onClick={() => handleLoadJson(4)} className="switch-seat-button" style={{top: "44vh"}}>四樓座位表</li>
         <li onClick={() => handleLoadJson(6)} className="switch-seat-button" style={{top: "55vh"}}>六樓座位表</li>
+        <li onClick={onSignoutClicked} className="switch-seat-button" style={{top: "77vh"}}>登出</li>
       </ul>
       {isAdmin && (
         <div className="switch-group">
