@@ -84,6 +84,7 @@
     background-color: #2980b9;
     display: block;
     cursor: pointer;
+    transition: all .3s;
 }
 
 .login-submit:hover {
