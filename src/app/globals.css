@@ -13,6 +13,8 @@
   cursor: default;
   width: 80px;
   height: 80px;
+  font-weight: bold;
+  color: #2c3e50;
   background-color: #f9f9f9;
   transition: all .3s;
 }
@@ -65,7 +67,7 @@ body:before{
   bottom: 0;
   left: 0;
   right: 0;
-  background:  url(../img/watermark.png);
+  background:  url(../img/watermark.jpg);
   background-position: center;  
   background-repeat: no-repeat;
   background-attachment: fixed;
