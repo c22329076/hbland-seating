@@ -62,9 +62,13 @@ function OfficeLayout({ user }) {
   const [swapCandidates, setSwapCandidates] = useState([]);
   const [swapFields, setSwapFields] = useState({
     name: true,
-    extension: true,
+//    extension: true,
     department: true,
     task: true,
+//    hbweb: true,
+//    hbland: true,
+//    monitor1: true,
+//    monitor2: true,
   });
   const isAdmin = user.role === 'admin';
 
@@ -231,8 +235,8 @@ function OfficeLayout({ user }) {
         <li onClick={() => handleLoadJson(3)} className="switch-seat-button" style={{top: "33vh"}}>三樓座位表</li>
         <li onClick={() => handleLoadJson(4)} className="switch-seat-button" style={{top: "44vh"}}>四樓座位表</li>
         <li onClick={() => handleLoadJson(6)} className="switch-seat-button" style={{top: "55vh"}}>六樓座位表</li>
-        <li onClick={ruturnBack} className="switch-seat-button" style={{top: "71vh"}}>回上一頁</li>
-        <li onClick={onSignoutClicked} className="switch-seat-button" style={{top: "82vh"}}>登出</li>
+        <li onClick={ ruturnBack } className="switch-seat-button" style={{top: "71vh"}}>回上一頁</li>
+        <li onClick={ onSignoutClicked } className="switch-seat-button" style={{top: "82vh"}}>登出</li>
       </ul>
       {isAdmin && (
         <div className="switch-group">
