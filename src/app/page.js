@@ -17,7 +17,6 @@ function HomePage() {
   const [user, setUser] = useState(null);
   const verified = useCheckLogin();
   const router = useRouter();
-  let admin;
 
   useEffect(() => {
     fetch('/api/verifyLogin')
@@ -59,7 +58,82 @@ function HomePage() {
 function OfficeLayout({ user }) {
   const [data, setData] = useState(require('../data/office1.json'));
   const [selectedPerson, setSelectedPerson] = useState(null);
+  const [swapMode, setSwapMode] = useState(false);
+  const [swapCandidates, setSwapCandidates] = useState([]);
+  const [swapFields, setSwapFields] = useState({
+    name: true,
+    extension: true,
+    department: true,
+    task: true,
+  });
   const isAdmin = user.role === 'admin';
+
+  //交換模式
+  const handleSwapClick = () => {
+    if(swapMode){// 如果已經在交換模式，再次按下退出模式
+      setSwapMode(false);
+      setSwapCandidates([]);
+    }
+    else{
+      setSwapMode(true);
+      setSwapCandidates([]);
+    }
+  };
+
+  //處理點擊，判斷是否為交換模式，以及是交換模式的第一下或是第二下
+  const handleSeatClick = (person) => {
+    if (swapMode) {
+      const newCandidates = [...swapCandidates, person];
+      if (newCandidates.length === 2) {
+        swapData(newCandidates[0], newCandidates[1]);
+        setSwapMode(false);
+      } else {
+        setSwapCandidates(newCandidates);
+      }
+    } else {
+      setSelectedPerson(person);
+    }
+  };
+
+  //確認有無打勾
+  const handleFieldChange = (field) => {
+    setSwapFields((prev) => ({ ...prev, [field]: !prev[field] }));
+  };
+
+  //交換
+  const swapData = (person1, person2) => {
+    const updatedData = data.map((person) => {
+      if (person === person1) {
+        return {
+          ...person,
+          ...(swapFields.name && { name: person2.name }),
+          ...(swapFields.extension && { extension: person2.extension }),
+          ...(swapFields.department && { department: person2.department }),
+          ...(swapFields.task && { task: person2.task }),
+          ...(swapFields.hbweb && { hbweb: person2.hbweb }),
+          ...(swapFields.hbland && { hbland: person2.hbland }),
+          ...(swapFields.monitor1 && { monitor1: person2.monitor1 }),
+          ...(swapFields.monitor2 && { monitor2: person2.monitor2 }),
+        };
+      }
+      if (person === person2) {
+        return {
+          ...person,
+          ...(swapFields.name && { name: person1.name }),
+          ...(swapFields.extension && { extension: person1.extension }),
+          ...(swapFields.department && { department: person1.department }),
+          ...(swapFields.task && { task: person1.task }),
+          ...(swapFields.hbweb && { hbweb: person1.hbweb }),
+          ...(swapFields.hbland && { hbland: person1.hbland }),
+          ...(swapFields.monitor1 && { monitor1: person1.monitor1 }),
+          ...(swapFields.monitor2 && { monitor2: person1.monitor2 }),
+        };
+      }
+      return person;
+    });
+    setData(updatedData);
+    setSwapCandidates([]);
+  };
 
   //將現有頁面輸出成Excel
   const handleExportToExcel = () => {
@@ -132,6 +206,12 @@ function OfficeLayout({ user }) {
     document.getElementById('input_file').value= null;
   };
 
+  //藉由刷新頁面回到上一頁
+  const ruturnBack= (event) => {
+        location.reload();
+      };
+
+  //登出
   const onSignoutClicked= (event) => {
     fetch('/api/logout').then(res => res.json())
         .then(() => {
@@ -151,36 +231,116 @@ function OfficeLayout({ user }) {
         <li onClick={() => handleLoadJson(3)} className="switch-seat-button" style={{top: "33vh"}}>三樓座位表</li>
         <li onClick={() => handleLoadJson(4)} className="switch-seat-button" style={{top: "44vh"}}>四樓座位表</li>
         <li onClick={() => handleLoadJson(6)} className="switch-seat-button" style={{top: "55vh"}}>六樓座位表</li>
-        <li onClick={onSignoutClicked} className="switch-seat-button" style={{top: "77vh"}}>登出</li>
+        <li onClick={ruturnBack} className="switch-seat-button" style={{top: "71vh"}}>回上一頁</li>
+        <li onClick={onSignoutClicked} className="switch-seat-button" style={{top: "82vh"}}>登出</li>
       </ul>
       {isAdmin && (
         <div className="switch-group">
           {/*
-          <button onClick={handleExport} className="other-button">生成程式檔</button>
+          <button onClick={handleExport} className="other-button">
+            <span className="icon export-icon"></span>生成程式檔
+          </button>
           <label className="other-button">
-          <input type="file" accept=".json" className="input-file-button" onChange={handleImport} />
+          <input type="file" accept=".json" className="input-file-button" onChange={handleImport} id="input_file" />
+          <span className="icon upload-icon"></span>
           <p className="text-middle">上傳Json檔</p>
           </label>
           */}
-          <button onClick={handleExportToExcel} className="other-button">生成Excel</button>
+          <button onClick={handleExportToExcel} className="other-button">
+            生成Excel
+            </button>
           <label className="other-button">
             <input type="file" accept=".xlsx" className="input-file-button" onChange={handleImportFromExcel} id="input_file" />
             <p className="text-middle">上傳Excel</p>
           </label>
+          <button onClick={handleSwapClick} className="other-button">
+            交換座位
+          </button>
         </div>
       )}
       <div className="grid">
         {data.map((person, index) => (
           <div
             key={index}
-            className="seat"
+            className={`seat ${swapMode ? 'swap-mode' : ''} ${
+              swapCandidates.includes(person) ? 'swap-selected' : ''
+            }`}
             style={{ position: 'absolute', top: person.top, left: person.left }}
-            onClick={() => setSelectedPerson(person)}
+            onClick={() => handleSeatClick(person)}
           >
             <p>{person.name}</p>
           </div>
         ))}
       </div>
+      {swapMode && (
+        <div className="swap-options">
+          <h3>交換項目</h3>
+          <label>
+            <input
+              type="checkbox"
+              checked={swapFields.name}
+              onChange={() => handleFieldChange('name')}
+            />
+            姓名
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={swapFields.extension}
+              onChange={() => handleFieldChange('extension')}
+            />
+            分機
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={swapFields.department}
+              onChange={() => handleFieldChange('department')}
+            />
+            科室
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={swapFields.task}
+              onChange={() => handleFieldChange('task')}
+            />
+            工作內容
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={swapFields.hbweb}
+              onChange={() => handleFieldChange('hbweb')}
+            />
+            內網電腦
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={swapFields.hbland}
+              onChange={() => handleFieldChange('hbland')}
+            />
+            外網電腦
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={swapFields.monitor1}
+              onChange={() => handleFieldChange('monitor1')}
+            />
+            螢幕
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={swapFields.monitor2}
+              onChange={() => handleFieldChange('monitor2')}
+            />
+            螢幕
+          </label>
+        </div>
+      )}
       {selectedPerson && (
         <div className="details">
           <h2>資訊：</h2>
