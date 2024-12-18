@@ -1,0 +1,327 @@
+[
+  {
+    "index": 0,
+    "top": 300,
+    "left": 950
+  },
+  {
+    "index": 1,
+    "top": 400,
+    "left": 950
+  },
+  {
+    "index": 2,
+    "top": 500,
+    "left": 1200
+  },
+  {
+    "index": 3,
+    "top": 600,
+    "left": 1200
+  },
+  {
+    "index": 4,
+    "top": 500,
+    "left": 1100
+  },
+  {
+    "index": 5,
+    "top": 600,
+    "left": 1100
+  },
+  {
+    "index": 6,
+    "top": 500,
+    "left": 950
+  },
+  {
+    "index": 7,
+    "top": 700,
+    "left": 950
+  },
+  {
+    "index": 8,
+    "top": 800,
+    "left": 950
+  },
+  {
+    "index": 9,
+    "top": 900,
+    "left": 950
+  },
+  {
+    "index": 10,
+    "top": 1000,
+    "left": 950
+  },
+  {
+    "index": 11,
+    "top": 300,
+    "left": 800
+  },
+  {
+    "index": 12,
+    "top": 400,
+    "left": 800
+  },
+  {
+    "index": 13,
+    "top": 500,
+    "left": 800
+  },
+  {
+    "index": 14,
+    "top": 700,
+    "left": 800
+  },
+  {
+    "index": 15,
+    "top": 800,
+    "left": 800
+  },
+  {
+    "index": 16,
+    "top": 900,
+    "left": 800
+  },
+  {
+    "index": 17,
+    "top": 1000,
+    "left": 800
+  },
+  {
+    "index": 18,
+    "top": 300,
+    "left": 700
+  },
+  {
+    "index": 19,
+    "top": 400,
+    "left": 700
+  },
+  {
+    "index": 20,
+    "top": 500,
+    "left": 700
+  },
+  {
+    "index": 21,
+    "top": 700,
+    "left": 700
+  },
+  {
+    "index": 22,
+    "top": 800,
+    "left": 700
+  },
+  {
+    "index": 23,
+    "top": 900,
+    "left": 700
+  },
+  {
+    "index": 24,
+    "top": 1000,
+    "left": 700
+  },
+  {
+    "index": 25,
+    "top": 50,
+    "left": 550
+  },
+  {
+    "index": 26,
+    "top": 150,
+    "left": 550
+  },
+  {
+    "index": 27,
+    "top": 300,
+    "left": 550
+  },
+  {
+    "index": 28,
+    "top": 400,
+    "left": 550
+  },
+  {
+    "index": 29,
+    "top": 500,
+    "left": 550
+  },
+  {
+    "index": 30,
+    "top": 700,
+    "left": 550
+  },
+  {
+    "index": 31,
+    "top": 800,
+    "left": 550
+  },
+  {
+    "index": 32,
+    "top": 900,
+    "left": 550
+  },
+  {
+    "index": 33,
+    "top": 1000,
+    "left": 550
+  },
+  {
+    "index": 34,
+    "top": 50,
+    "left": 450
+  },
+  {
+    "index": 35,
+    "top": 150,
+    "left": 450
+  },
+  {
+    "index": 36,
+    "top": 300,
+    "left": 450
+  },
+  {
+    "index": 37,
+    "top": 400,
+    "left": 450
+  },
+  {
+    "index": 38,
+    "top": 500,
+    "left": 450
+  },
+  {
+    "index": 39,
+    "top": 700,
+    "left": 450
+  },
+  {
+    "index": 40,
+    "top": 800,
+    "left": 450
+  },
+  {
+    "index": 41,
+    "top": 900,
+    "left": 450
+  },
+  {
+    "index": 42,
+    "top": 1000,
+    "left": 450
+  },
+  {
+    "index": 43,
+    "top": 300,
+    "left": 300
+  },
+  {
+    "index": 44,
+    "top": 400,
+    "left": 300
+  },
+  {
+    "index": 45,
+    "top": 500,
+    "left": 300
+  },
+  {
+    "index": 46,
+    "top": 700,
+    "left": 300
+  },
+  {
+    "index": 47,
+    "top": 800,
+    "left": 300
+  },
+  {
+    "index": 48,
+    "top": 900,
+    "left": 300
+  },
+  {
+    "index": 49,
+    "top": 1000,
+    "left": 300
+  },
+  {
+    "index": 50,
+    "top": 300,
+    "left": 200
+  },
+  {
+    "index": 51,
+    "top": 400,
+    "left": 200
+  },
+  {
+    "index": 52,
+    "top": 500,
+    "left": 200
+  },
+  {
+    "index": 53,
+    "top": 700,
+    "left": 200
+  },
+  {
+    "index": 54,
+    "top": 800,
+    "left": 200
+  },
+  {
+    "index": 55,
+    "top": 900,
+    "left": 200
+  },
+  {
+    "index": 56,
+    "top": 1000,
+    "left": 200
+  },
+  {
+    "index": 57,
+    "top": 300,
+    "left": 50
+  },
+  {
+    "index": 58,
+    "top": 400,
+    "left": 50
+  },
+  {
+    "index": 59,
+    "top": 500,
+    "left": 50
+  },
+  {
+    "index": 60,
+    "top": 700,
+    "left": 50
+  },
+  {
+    "index": 61,
+    "top": 800,
+    "left": 50
+  },
+  {
+    "index": 62,
+    "top": 900,
+    "left": 50
+  },
+  {
+    "index": 63,
+    "top": 1000,
+    "left": 50
+  },
+  {
+    "index": 64,
+    "top": 50,
+    "left": 50
+  }
+]
