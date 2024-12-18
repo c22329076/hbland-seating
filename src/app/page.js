@@ -58,6 +58,8 @@ function HomePage() {
 function OfficeLayout({ user }) {
   const [data, setData] = useState(require('../data/office1.json'));
   const [selectedPerson, setSelectedPerson] = useState(null);
+  const [activeFile, setActiveFile] = useState(1); // Active JSON file
+  const [searchQuery, setSearchQuery] = useState('');
   const [swapMode, setSwapMode] = useState(false);
   const [swapCandidates, setSwapCandidates] = useState([]);
   const [swapFields, setSwapFields] = useState({
@@ -70,7 +72,51 @@ function OfficeLayout({ user }) {
 //    monitor1: true,
 //    monitor2: true,
   });
+  const columnTranslations = {
+    index: '編號',
+    name: '姓名',
+    extension: '分機',
+    department: '單位',
+    task: '業務內容',
+    hbweb: '內網主機',
+    hbland: '外網主機',
+    monitor1: '螢幕',
+    monitor2: '螢幕2',
+    top: '座標Y',
+    left: '座標X',
+  };
   const isAdmin = user.role === 'admin';
+
+  //搜尋姓名功能
+  const handleSearch = () => {
+    let found = false;
+    if(!searchQuery){
+      alert('請輸入姓名！');
+      found = true;
+    }
+    if(!found){
+      for (let i = 1; i <= 6; i++) {
+        if(i == 5)
+          continue;
+        const officeData = require(`../data/office${i}.json`);
+        const foundPerson = officeData.find((person) => person.name === searchQuery);
+        document.getElementById(`load_file_${i}`).style.backgroundColor = "white";
+        document.getElementById(`load_file_${i}`).style.color = "#2c3e50";
+        if (foundPerson) {
+          setData(officeData);
+          setSelectedPerson(foundPerson);
+          setActiveFile(i);
+          document.getElementById(`load_file_${i}`).style.backgroundColor = "#2c3e50";
+          document.getElementById(`load_file_${i}`).style.color = "white";
+          document.getElementById(`imgStyle`).className = `img-seating${i}`;
+          found = true;
+        }
+      }
+    }
+    if (!found) {
+      alert('找不到該人員！請確認是否為全名或是有錯字！');
+    }
+  };
 
   //交換模式
   const handleSwapClick = () => {
@@ -141,7 +187,21 @@ function OfficeLayout({ user }) {
 
   //將現有頁面輸出成Excel
   const handleExportToExcel = () => {
-    const worksheet = XLSX.utils.json_to_sheet(data);
+    const transformedData = data.map((person, index) => ({
+      編號: index,
+      姓名: person.name,
+      分機: person.extension,
+      單位: person.department,
+      業務內容: person.task,
+      內網主機: person.hbweb,
+      外網主機: person.hbland,
+      螢幕: person.monitor1,
+      螢幕2: person.monitor2,
+      座標Y: person.top,
+      座標X: person.left,
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(transformedData);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, 'OfficeData');
     XLSX.writeFile(workbook, 'office_data.xlsx');
@@ -150,20 +210,35 @@ function OfficeLayout({ user }) {
   //將excel輸入更改成json的形式並在頁面上呈現
   const handleImportFromExcel = (e) => {
     const file = e.target.files[0];
-    if (!file) return;
-
     const reader = new FileReader();
-    reader.onload = (e) => {
-      const binary = e.target.result;
-      const workbook = XLSX.read(binary, { type: 'binary' });
-      const sheetName = workbook.SheetNames[0]; //only read the first worksheet
-      const sheet = workbook.Sheets[sheetName];
-      const json = XLSX.utils.sheet_to_json(sheet);
+    reader.onload = (event) => {
+      const data = new Uint8Array(event.target.result);
+      const workbook = XLSX.read(data, { type: 'array' });
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-      //update
-      setData(json);
+      const [headers, ...rows] = jsonData;
+      const keyMap = Object.fromEntries(
+        headers.map((header, index) => [
+          header,
+          Object.keys(columnTranslations).find((key) => columnTranslations[key] === header),
+        ])
+      );
+
+      const formattedData = rows.map((row) => {
+        const obj = {};
+        headers.forEach((header, index) => {
+          const key = keyMap[header];
+          if (key) obj[key] = row[index];
+        });
+        return obj;
+      });
+
+      setData(formattedData);
     };
-    reader.readAsBinaryString(file);
+    reader.readAsArrayBuffer(file);
+    clearInputFile();
   };
 
   //更改文字時動態變更頁面
@@ -201,6 +276,16 @@ function OfficeLayout({ user }) {
   const handleLoadJson = (fileNumber) => {
     import(`../data/office${fileNumber}.json`).then((module) => setData(module.default));
     setSelectedPerson(null);
+    for (let i = 1; i <= 6; i++) {
+      if(i === 5)
+        continue;
+      document.getElementById(`load_file_${i}`).style.backgroundColor = "white";
+      document.getElementById(`load_file_${i}`).style.color = "#2c3e50";
+      }
+    document.getElementById(`load_file_${fileNumber}`).style.backgroundColor = "#2c3e50";
+    document.getElementById(`load_file_${fileNumber}`).style.color = "white";
+    document.getElementById(`imgStyle`).className = `img-seating${fileNumber}`;
+    setActiveFile(fileNumber);
     clearInputFile();
   };
 
@@ -230,16 +315,16 @@ function OfficeLayout({ user }) {
     <div>
       <h1>中壢地政事務所 座位表</h1>
       <ul>
-        <li onClick={() => handleLoadJson(1)} className="switch-seat-button" style={{top: "10vh"}}>一樓座位表</li>
-        <li onClick={() => handleLoadJson(2)} className="switch-seat-button" style={{top: "22vh"}}>二樓座位表</li>
-        <li onClick={() => handleLoadJson(3)} className="switch-seat-button" style={{top: "33vh"}}>三樓座位表</li>
-        <li onClick={() => handleLoadJson(4)} className="switch-seat-button" style={{top: "44vh"}}>四樓座位表</li>
-        <li onClick={() => handleLoadJson(6)} className="switch-seat-button" style={{top: "55vh"}}>六樓座位表</li>
+        <li onClick={() => handleLoadJson(1)} className="switch-seat-button" style={{top: "10vh", backgroundColor: "#2c3e50", color: "white"}} id="load_file_1">一樓座位表</li>
+        <li onClick={() => handleLoadJson(2)} className="switch-seat-button" style={{top: "22vh"}} id="load_file_2">二樓座位表</li>
+        <li onClick={() => handleLoadJson(3)} className="switch-seat-button" style={{top: "33vh"}} id="load_file_3">三樓座位表</li>
+        <li onClick={() => handleLoadJson(4)} className="switch-seat-button" style={{top: "44vh"}} id="load_file_4">四樓座位表</li>
+        <li onClick={() => handleLoadJson(6)} className="switch-seat-button" style={{top: "55vh"}} id="load_file_6">六樓座位表</li>
         <li onClick={ ruturnBack } className="switch-seat-button" style={{top: "71vh"}}>回上一頁</li>
         <li onClick={ onSignoutClicked } className="switch-seat-button" style={{top: "82vh"}}>登出</li>
       </ul>
       {isAdmin && (
-        <div className="switch-group">
+        <div className="switch-group">  
           {/*
           <button onClick={handleExport} className="other-button">
             <span className="icon export-icon"></span>生成程式檔
@@ -262,13 +347,27 @@ function OfficeLayout({ user }) {
           </button>
         </div>
       )}
+      <div className="search-input">
+        <input
+          className="txt-input"
+          type="text"
+          placeholder="輸入姓名「全名」搜尋"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}>
+        </input>
+      </div>
+        <button className="other-button search-input" onClick={handleSearch}>搜尋</button>
+        <div>
+          <img className='img-seating1' id='imgStyle'/>
+        </div>
       <div className="grid">
         {data.map((person, index) => (
           <div
             key={index}
-            className={`seat ${swapMode ? 'swap-mode' : ''} ${
-              swapCandidates.includes(person) ? 'swap-selected' : ''
-            }`}
+            className={ `seat ${ person === selectedPerson ? 'seat-selected' : ''}
+            ${ swapMode ? 'swap-mode' : ''} 
+            ${ swapCandidates.includes(person) ? 'swap-selected' : ''}
+            `}
             style={{ position: 'absolute', top: person.top, left: person.left }}
             onClick={() => handleSeatClick(person)}
           >
@@ -353,6 +452,7 @@ function OfficeLayout({ user }) {
               <label>
                 姓名：
                 <input
+                  className="txt-input"
                   placeholder="輸入姓名"
                   type="text"
                   value={selectedPerson.name}
@@ -363,6 +463,7 @@ function OfficeLayout({ user }) {
               <label>
                 分機：
                 <input
+                  className="txt-input"
                   placeholder="輸入分機"
                   type="text"
                   value={selectedPerson.extension}
@@ -373,6 +474,7 @@ function OfficeLayout({ user }) {
               <label>
                 科室：
                 <input
+                  className="txt-input"
                   placeholder="輸入課室"
                   type="text"
                   value={selectedPerson.department}
@@ -383,6 +485,7 @@ function OfficeLayout({ user }) {
               <label>
                 工作內容：
                 <input
+                  className="txt-input"
                   placeholder="輸入工作內容"
                   type="text"
                   value={selectedPerson.task}
@@ -393,6 +496,7 @@ function OfficeLayout({ user }) {
               <label>
                 內網電腦：
                 <input
+                  className="txt-input"
                   placeholder="輸入內網電腦財產編號"
                   type="text"
                   value={selectedPerson.hbweb}
@@ -403,6 +507,7 @@ function OfficeLayout({ user }) {
               <label>
                 外網電腦：
                 <input
+                  className="txt-input"
                   placeholder="輸入外網電腦財產編號"
                   type="text"
                   value={selectedPerson.hbland}
@@ -413,6 +518,7 @@ function OfficeLayout({ user }) {
               <label>
                 螢幕：
                 <input
+                  className="txt-input"
                   placeholder="輸入螢幕財產編號"
                   type="text"
                   value={selectedPerson.monitor1}
@@ -423,6 +529,7 @@ function OfficeLayout({ user }) {
               <label>
                 螢幕：
                 <input
+                  className="txt-input"
                   placeholder="輸入第二台螢幕財產編號"
                   type="text"
                   value={selectedPerson.monitor2}
