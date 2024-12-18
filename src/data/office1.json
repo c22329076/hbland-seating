@@ -1,574 +1,222 @@
 [
   {
     "index": 0,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 0,
-    "left": 300
+    "top": 300,
+    "left": 800
   },
   {
     "index": 1,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 0,
-    "left": 450
+    "top": 450,
+    "left": 800
   },
   {
     "index": 2,
-    "name": "【校對】",
-    "extension": "160",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 0,
-    "left": 550
+    "top": 550,
+    "left": 800
   },
   {
     "index": 3,
-    "name": "【登簿】",
-    "extension": "162",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 0,
-    "left": 700
+    "top": 700,
+    "left": 800
   },
   {
     "index": 4,
-    "name": "【審查】",
-    "extension": "164",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 0,
+    "top": 800,
     "left": 800
   },
   {
     "index": 5,
-    "name": "謝羽絜",
-    "extension": "157",
-    "department": "登記課",
-    "task": "公文",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 100,
-    "left": 300
+    "top": 300,
+    "left": 700
   },
   {
     "index": 6,
-    "name": "李怡璇",
-    "extension": "159",
-    "department": "登記課",
-    "task": "公文",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 100,
-    "left": 450
+    "top": 450,
+    "left": 700
   },
   {
     "index": 7,
-    "name": "范哲彥",
-    "extension": "161",
-    "department": "登記課",
-    "task": "單一校對",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 100,
-    "left": 550
+    "top": 550,
+    "left": 700
   },
   {
     "index": 8,
-    "name": "林春桃",
-    "extension": "163",
-    "department": "登記課",
-    "task": "單一登簿",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 100,
+    "top": 700,
     "left": 700
   },
   {
     "index": 9,
-    "name": "湯紹銘",
-    "extension": "165",
-    "department": "登記課",
-    "task": "單一窗口",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 100,
-    "left": 800
+    "top": 800,
+    "left": 700
   },
   {
     "index": 10,
-    "name": "蘇郁婷",
-    "extension": "167",
-    "department": "登記課",
-    "task": "單一窗口",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 100,
-    "left": 950
+    "top": 950,
+    "left": 700
   },
   {
     "index": 11,
-    "name": "徐嘉悅",
-    "extension": "149",
-    "department": "登記課",
-    "task": "列狀",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 50
+    "top": 50,
+    "left": 550
   },
   {
     "index": 12,
-    "name": "黃雅柔",
-    "extension": "150",
-    "department": "登記課",
-    "task": "結案",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 150
+    "top": 150,
+    "left": 550
   },
   {
     "index": 13,
-    "name": "彭玉秀",
-    "extension": "151",
-    "department": "登記課",
-    "task": "大印",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 350,
-    "left": 50
+    "top": 50,
+    "left": 450
   },
   {
     "index": 14,
-    "name": "李碧雲",
-    "extension": "152",
-    "department": "登記課",
-    "task": "發狀",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 350,
-    "left": 150
+    "top": 150,
+    "left": 450
   },
   {
     "index": 15,
-    "name": "徐瑞滿",
-    "extension": "143",
-    "department": "登記課",
-    "task": "經費",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 50
+    "top": 50,
+    "left": 300
   },
   {
     "index": 16,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 150
+    "top": 150,
+    "left": 300
   },
   {
     "index": 17,
-    "name": "郭語晴",
-    "extension": "154",
-    "department": "登記課",
-    "task": "公文協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
+    "top": 50,
+    "left": 200
+  },
+  {
+    "index": 18,
+    "top": 150,
+    "left": 200
+  },
+  {
+    "index": 19,
+    "top": 300,
+    "left": 550
+  },
+  {
+    "index": 20,
+    "top": 400,
+    "left": 550
+  },
+  {
+    "index": 21,
+    "top": 500,
+    "left": 550
+  },
+  {
+    "index": 22,
+    "top": 600,
+    "left": 550
+  },
+  {
+    "index": 23,
+    "top": 700,
+    "left": 550
+  },
+  {
+    "index": 24,
+    "top": 800,
+    "left": 550
+  },
+  {
+    "index": 25,
+    "top": 900,
+    "left": 550
+  },
+  {
+    "index": 26,
+    "top": 1000,
+    "left": 550
+  },
+  {
+    "index": 27,
+    "top": 300,
+    "left": 450
+  },
+  {
+    "index": 28,
+    "top": 300,
+    "left": 350
+  },
+  {
+    "index": 29,
+    "top": 300,
+    "left": 250
+  },
+  {
+    "index": 30,
+    "top": 300,
+    "left": 150
+  },
+  {
+    "index": 31,
+    "top": 300,
+    "left": 50
+  },
+  {
+    "index": 32,
+    "top": 400,
+    "left": 50
+  },
+  {
+    "index": 33,
+    "top": 500,
+    "left": 50
+  },
+  {
+    "index": 34,
     "top": 600,
     "left": 50
   },
   {
-    "index": 18,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 600,
-    "left": 150
-  },
-  {
-    "index": 19,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 300
-  },
-  {
-    "index": 20,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 400
-  },
-  {
-    "index": 21,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 500
-  },
-  {
-    "index": 22,
-    "name": "賴家榆",
-    "extension": "172",
-    "department": "登記課",
-    "task": "全功能櫃台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 600
-  },
-  {
-    "index": 23,
-    "name": "廖芷芸",
-    "extension": "171",
-    "department": "登記課",
-    "task": "全功能櫃台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 700
-  },
-  {
-    "index": 24,
-    "name": "劉婉婷",
-    "extension": "170",
-    "department": "登記課",
-    "task": "全功能櫃台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 800
-  },
-  {
-    "index": 25,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 900
-  },
-  {
-    "index": 26,
-    "name": "黃馥嵐",
-    "extension": "168",
-    "department": "登記課",
-    "task": "全功能櫃台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 1000
-  },
-  {
-    "index": 27,
-    "name": "劉佳玲",
-    "extension": "176",
-    "department": "登記課",
-    "task": "全功能櫃台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 350,
-    "left": 300
-  },
-  {
-    "index": 28,
-    "name": "李碧治",
-    "extension": "177",
-    "department": "登記課",
-    "task": "全功能櫃台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 450,
-    "left": 300
-  },
-  {
-    "index": 29,
-    "name": "李慧貞",
-    "extension": "178",
-    "department": "登記課",
-    "task": "全功能櫃台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 550,
-    "left": 300
-  },
-  {
-    "index": 30,
-    "name": "邱怡華",
-    "extension": "179",
-    "department": "登記課",
-    "task": "全功能櫃台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 300
-  },
-  {
-    "index": 31,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 300
-  },
-  {
-    "index": 32,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 400
-  },
-  {
-    "index": 33,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 500
-  },
-  {
-    "index": 34,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 600
-  },
-  {
     "index": 35,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 700
+    "top": 700,
+    "left": 50
   },
   {
     "index": 36,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 800
+    "top": 800,
+    "left": 50
   },
   {
     "index": 37,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 900
+    "top": 900,
+    "left": 50
   },
   {
     "index": 38,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 1000
+    "top": 1000,
+    "left": 50
   },
   {
     "index": 39,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 1150
+    "top": 1150,
+    "left": 50
   },
   {
     "index": 40,
-    "name": "范宇瑄",
-    "extension": "188",
-    "department": "登記課",
-    "task": "服務台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 1150
+    "top": 1150,
+    "left": 150
   },
   {
     "index": 41,
-    "name": "李如文",
-    "extension": "189",
-    "department": "登記課",
-    "task": "服務台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 550,
-    "left": 1150
+    "top": 1150,
+    "left": 250
   },
   {
     "index": 42,
-    "name": "宋美玲",
-    "extension": "190",
-    "department": "登記課",
-    "task": "服務台",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 450,
-    "left": 1150
+    "top": 1150,
+    "left": 350
   },
   {
     "index": 43,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 450,
-    "left": 1250
+    "top": 1250,
+    "left": 350
   }
 ]

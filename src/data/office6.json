@@ -1,847 +1,327 @@
 [
   {
     "index": 0,
-    "name": "許莉芳",
-    "extension": "206",
-    "department": "測量課",
-    "task": "三圖業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 300
+    "top": 300,
+    "left": 950
   },
   {
     "index": 1,
-    "name": "呂文揚",
-    "extension": "207",
-    "department": "測量課",
-    "task": "三圖業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 400
+    "top": 400,
+    "left": 950
   },
   {
     "index": 2,
-    "name": "黎蕙雯",
-    "extension": "203",
-    "department": "測量課",
-    "task": "三圖業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 0,
-    "left": 500
+    "top": 500,
+    "left": 1200
   },
   {
     "index": 3,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 0,
-    "left": 600
+    "top": 600,
+    "left": 1200
   },
   {
     "index": 4,
-    "name": "李美香",
-    "extension": "252",
-    "department": "測量課",
-    "task": "三圖業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 100,
-    "left": 500
+    "top": 500,
+    "left": 1100
   },
   {
     "index": 5,
-    "name": "蕭人瑜",
-    "extension": "205",
-    "department": "測量課",
-    "task": "三圖業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 100,
-    "left": 600
+    "top": 600,
+    "left": 1100
   },
   {
     "index": 6,
-    "name": "周明輝",
-    "extension": "208",
-    "department": "測量課",
-    "task": "三圖業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 500
+    "top": 500,
+    "left": 950
   },
   {
     "index": 7,
-    "name": "邱玉民",
-    "extension": "209",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 700
+    "top": 700,
+    "left": 950
   },
   {
     "index": 8,
-    "name": "呂建德",
-    "extension": "210",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 800
+    "top": 800,
+    "left": 950
   },
   {
     "index": 9,
-    "name": "彭國昌",
-    "extension": "211",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 900
+    "top": 900,
+    "left": 950
   },
   {
     "index": 10,
-    "name": "蘇聖哲",
-    "extension": "212",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 1000
+    "top": 1000,
+    "left": 950
   },
   {
     "index": 11,
-    "name": "陳義雄",
-    "extension": "213",
-    "department": "測量課",
-    "task": "三圖業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 400,
-    "left": 300
+    "top": 300,
+    "left": 800
   },
   {
     "index": 12,
-    "name": "徐世鴻",
-    "extension": "214",
-    "department": "測量課",
-    "task": "三圖業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
     "top": 400,
-    "left": 400
+    "left": 800
   },
   {
     "index": 13,
-    "name": "黃玉城",
-    "extension": "215",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 400,
-    "left": 500
+    "top": 500,
+    "left": 800
   },
   {
     "index": 14,
-    "name": "黃秀鈺",
-    "extension": "216",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 400,
-    "left": 700
+    "top": 700,
+    "left": 800
   },
   {
     "index": 15,
-    "name": "王興郎",
-    "extension": "217",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 400,
+    "top": 800,
     "left": 800
   },
   {
     "index": 16,
-    "name": "許玉青",
-    "extension": "218",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 400,
-    "left": 900
+    "top": 900,
+    "left": 800
   },
   {
     "index": 17,
-    "name": "林妙蓁",
-    "extension": "219",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 400,
-    "left": 1000
+    "top": 1000,
+    "left": 800
   },
   {
     "index": 18,
-    "name": "袁健倫",
-    "extension": "220",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 300
+    "top": 300,
+    "left": 700
   },
   {
     "index": 19,
-    "name": "黃勁惟",
-    "extension": "221",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 400
+    "top": 400,
+    "left": 700
   },
   {
     "index": 20,
-    "name": "徐世芬",
-    "extension": "222",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
     "top": 500,
-    "left": 500
+    "left": 700
   },
   {
     "index": 21,
-    "name": "趙申皓",
-    "extension": "223",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
+    "top": 700,
     "left": 700
   },
   {
     "index": 22,
-    "name": "康夢倪",
-    "extension": "224",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 800
+    "top": 800,
+    "left": 700
   },
   {
     "index": 23,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 900
+    "top": 900,
+    "left": 700
   },
   {
     "index": 24,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 1000
+    "top": 1000,
+    "left": 700
   },
   {
     "index": 25,
-    "name": "曾月玲",
-    "extension": "227",
-    "department": "測量課",
-    "task": "庫房業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 50
+    "top": 50,
+    "left": 550
   },
   {
     "index": 26,
-    "name": "謝育諭",
-    "extension": "228",
-    "department": "測量課",
-    "task": "庫房業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 150
+    "top": 150,
+    "left": 550
   },
   {
     "index": 27,
-    "name": "陳詠裕",
-    "extension": "229",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 300
+    "top": 300,
+    "left": 550
   },
   {
     "index": 28,
-    "name": "陳佳欣",
-    "extension": "230",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 400
+    "top": 400,
+    "left": 550
   },
   {
     "index": 29,
-    "name": "黃聖喬",
-    "extension": "231",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 500
+    "top": 500,
+    "left": 550
   },
   {
     "index": 30,
-    "name": "何奕霆",
-    "extension": "232",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 700
+    "top": 700,
+    "left": 550
   },
   {
     "index": 31,
-    "name": "蔡博慶",
-    "extension": "233",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 800
+    "top": 800,
+    "left": 550
   },
   {
     "index": 32,
-    "name": "陳柏宇",
-    "extension": "234",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 900
+    "top": 900,
+    "left": 550
   },
   {
     "index": 33,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 650,
-    "left": 1000
+    "top": 1000,
+    "left": 550
   },
   {
     "index": 34,
-    "name": "葉思仙",
-    "extension": "236",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 50
+    "top": 50,
+    "left": 450
   },
   {
     "index": 35,
-    "name": "林湘卉",
-    "extension": "237",
-    "department": "測量課",
-    "task": "業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 150
+    "top": 150,
+    "left": 450
   },
   {
     "index": 36,
-    "name": "鄭靜莉",
-    "extension": "238",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 300
+    "top": 300,
+    "left": 450
   },
   {
     "index": 37,
-    "name": "洪悅馨",
-    "extension": "239",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 400
+    "top": 400,
+    "left": 450
   },
   {
     "index": 38,
-    "name": "蘇柔因",
-    "extension": "240",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 500
+    "top": 500,
+    "left": 450
   },
   {
     "index": 39,
-    "name": "徐正龍",
-    "extension": "241",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 700
+    "top": 700,
+    "left": 450
   },
   {
     "index": 40,
-    "name": "孫麒宸",
-    "extension": "242",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 800
+    "top": 800,
+    "left": 450
   },
   {
     "index": 41,
-    "name": "范綱洪",
-    "extension": "243",
-    "department": "測量課",
-    "task": "測量業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 900
+    "top": 900,
+    "left": 450
   },
   {
     "index": 42,
-    "name": "張麗珠",
-    "extension": "244",
-    "department": "測量課",
-    "task": "補正櫃台&測量收件",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 1000
+    "top": 1000,
+    "left": 450
   },
   {
     "index": 43,
-    "name": "黃文台",
-    "extension": "245",
-    "department": "測量課",
-    "task": "建物檢查",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 900,
+    "top": 300,
     "left": 300
   },
   {
     "index": 44,
-    "name": "李仁傑",
-    "extension": "246",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 900,
-    "left": 400
+    "top": 400,
+    "left": 300
   },
   {
     "index": 45,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 900,
-    "left": 500
+    "top": 500,
+    "left": 300
   },
   {
     "index": 46,
-    "name": "李詩淦",
-    "extension": "248",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 900,
-    "left": 700
+    "top": 700,
+    "left": 300
   },
   {
     "index": 47,
-    "name": "劉志輝",
-    "extension": "249",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 900,
-    "left": 800
+    "top": 800,
+    "left": 300
   },
   {
     "index": 48,
-    "name": "吳祥興",
-    "extension": "250",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
     "top": 900,
-    "left": 900
+    "left": 300
   },
   {
     "index": 49,
-    "name": "吳振永",
-    "extension": "251",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 900,
-    "left": 1000
+    "top": 1000,
+    "left": 300
   },
   {
     "index": 50,
-    "name": "于德民",
-    "extension": "202",
-    "department": "測量課",
-    "task": "土地檢查",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1000,
-    "left": 300
+    "top": 300,
+    "left": 200
   },
   {
     "index": 51,
-    "name": "樊繼勇",
-    "extension": "253",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1000,
-    "left": 400
+    "top": 400,
+    "left": 200
   },
   {
     "index": 52,
-    "name": "林志成",
-    "extension": "254",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1000,
-    "left": 500
+    "top": 500,
+    "left": 200
   },
   {
     "index": 53,
-    "name": "麥彥偵",
-    "extension": "255",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1000,
-    "left": 700
+    "top": 700,
+    "left": 200
   },
   {
     "index": 54,
-    "name": "黃佳宏",
-    "extension": "256",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1000,
-    "left": 800
+    "top": 800,
+    "left": 200
   },
   {
     "index": 55,
-    "name": "許應盈",
-    "extension": "257",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1000,
-    "left": 900
+    "top": 900,
+    "left": 200
   },
   {
     "index": 56,
-    "name": "原文",
-    "extension": "258",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
     "top": 1000,
-    "left": 1000
+    "left": 200
   },
   {
     "index": 57,
-    "name": "劉貞枝",
-    "extension": "259",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1150,
-    "left": 300
+    "top": 300,
+    "left": 50
   },
   {
     "index": 58,
-    "name": "黃揚達",
-    "extension": "260",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1150,
-    "left": 400
+    "top": 400,
+    "left": 50
   },
   {
     "index": 59,
-    "name": "彭濬智",
-    "extension": "261",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1150,
-    "left": 500
+    "top": 500,
+    "left": 50
   },
   {
     "index": 60,
-    "name": "謝玉娟",
-    "extension": "262",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1150,
-    "left": 700
+    "top": 700,
+    "left": 50
   },
   {
     "index": 61,
-    "name": "呂紹洋",
-    "extension": "263",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1150,
-    "left": 800
+    "top": 800,
+    "left": 50
   },
   {
     "index": 62,
-    "name": "楊怡蓉",
-    "extension": "264",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1150,
-    "left": 900
+    "top": 900,
+    "left": 50
   },
   {
     "index": 63,
-    "name": "陳英統",
-    "extension": "265",
-    "department": "測量課",
-    "task": "測量業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1150,
-    "left": 1000
+    "top": 1000,
+    "left": 50
   },
   {
     "index": 64,
-    "name": "蔡山崎",
-    "extension": "201",
-    "department": "測量課",
-    "task": "課長",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1150,
+    "top": 50,
     "left": 50
   }
 ]

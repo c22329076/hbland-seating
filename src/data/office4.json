@@ -1,366 +1,142 @@
 [
   {
     "index": 0,
-    "name": "洪佟玫",
-    "extension": "500",
-    "department": "人事室",
-    "task": "人事管理員",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 100
+    "top": 100,
+    "left": 550
   },
   {
     "index": 1,
-    "name": "廖素娟",
-    "extension": "601",
-    "department": "人事室",
-    "task": "人事協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 600,
-    "left": 100
+    "top": 100,
+    "left": 450
   },
   {
     "index": 2,
-    "name": "陳美惠",
-    "extension": "602",
-    "department": "會計室",
-    "task": "會計協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 100
+    "top": 100,
+    "left": 300
   },
   {
     "index": 3,
-    "name": "張雲筑",
-    "extension": "400",
-    "department": "會計室",
-    "task": "會計員",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 850,
-    "left": 100
+    "top": 100,
+    "left": 200
   },
   {
     "index": 4,
-    "name": "陳俊裕",
-    "extension": "501",
-    "department": "資訊課",
-    "task": "課長",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 0,
-    "left": 400
+    "top": 400,
+    "left": 1050
   },
   {
     "index": 5,
-    "name": "梁桂豪",
-    "extension": "502",
-    "department": "資訊課",
-    "task": "資訊業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 150,
-    "left": 350
+    "top": 350,
+    "left": 900
   },
   {
     "index": 6,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 150,
-    "left": 450
+    "top": 450,
+    "left": 900
   },
   {
     "index": 7,
-    "name": "呂燿行",
-    "extension": "503",
-    "department": "資訊課",
-    "task": "資訊業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 350
+    "top": 350,
+    "left": 800
   },
   {
     "index": 8,
-    "name": "吳學沅",
-    "extension": "506",
-    "department": "資訊課",
-    "task": "資訊業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 250,
-    "left": 450
+    "top": 450,
+    "left": 800
   },
   {
     "index": 9,
-    "name": "胡惠卿",
-    "extension": "504",
-    "department": "資訊課",
-    "task": "資訊業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
     "top": 350,
-    "left": 350
+    "left": 700
   },
   {
     "index": 10,
-    "name": "鄭皓",
-    "extension": "507",
-    "department": "資訊課",
-    "task": "資訊業務",
-    "hbweb": "314010103-001435",
-    "hbland": "314010103-001436",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 350,
-    "left": 450
+    "top": 450,
+    "left": 700
   },
   {
     "index": 11,
-    "name": "黃紫薇",
-    "extension": "308",
-    "department": "地價課",
-    "task": "地價業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 300
+    "top": 300,
+    "left": 550
   },
   {
     "index": 12,
-    "name": "易仕軒",
-    "extension": "307",
-    "department": "地價課",
-    "task": "地價業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 400
+    "top": 400,
+    "left": 550
   },
   {
     "index": 13,
-    "name": "劉惠純",
-    "extension": "306",
-    "department": "地價課",
-    "task": "地價業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
     "top": 500,
-    "left": 500
+    "left": 550
   },
   {
     "index": 14,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 500,
-    "left": 650
+    "top": 650,
+    "left": 550
   },
   {
     "index": 15,
-    "name": "莊淑君",
-    "extension": "311",
-    "department": "地價課",
-    "task": "地價業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 600,
-    "left": 300
+    "top": 300,
+    "left": 450
   },
   {
     "index": 16,
-    "name": "徐文苓",
-    "extension": "310",
-    "department": "地價課",
-    "task": "地價業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 600,
-    "left": 400
+    "top": 400,
+    "left": 450
   },
   {
     "index": 17,
-    "name": "呂乙芳",
-    "extension": "309",
-    "department": "地價課",
-    "task": "地價業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 600,
-    "left": 500
+    "top": 500,
+    "left": 450
   },
   {
     "index": 18,
-    "name": "黃素惠",
-    "extension": "304",
-    "department": "地價課",
-    "task": "地價業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 600,
-    "left": 650
+    "top": 650,
+    "left": 450
   },
   {
     "index": 19,
-    "name": "張瑞娟",
-    "extension": "314",
-    "department": "地價課",
-    "task": "地價業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
+    "top": 300,
     "left": 300
   },
   {
     "index": 20,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 400
+    "top": 400,
+    "left": 300
   },
   {
     "index": 21,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 750,
-    "left": 500
+    "top": 500,
+    "left": 300
   },
   {
     "index": 22,
-    "name": "邱于柔",
-    "extension": "303",
-    "department": "地價課",
-    "task": "地價業務協辦",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 700,
-    "left": 650
+    "top": 650,
+    "left": 350
   },
   {
     "index": 23,
-    "name": "洪祺詠",
-    "extension": "317",
-    "department": "地價課",
-    "task": "地價業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 850,
-    "left": 300
+    "top": 300,
+    "left": 200
   },
   {
     "index": 24,
-    "name": "洪秉毅",
-    "extension": "316",
-    "department": "地價課",
-    "task": "地價業務",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 850,
-    "left": 400
+    "top": 400,
+    "left": 200
   },
   {
     "index": 25,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 850,
-    "left": 500
+    "top": 500,
+    "left": 200
   },
   {
     "index": 26,
-    "name": "",
-    "extension": "",
-    "department": "",
-    "task": "",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 800,
-    "left": 650
+    "top": 650,
+    "left": 250
   },
   {
-    "index": 20,
-    "name": "牛培忠",
-    "extension": "301",
-    "department": "地價課",
-    "task": "課長",
-    "hbweb": "",
-    "hbland": "",
-    "monitor1": "",
-    "monitor2": "",
-    "top": 1000,
-    "left": 300
+    "index": 27,
+    "top": 300,
+    "left": 50
   }
 ]
