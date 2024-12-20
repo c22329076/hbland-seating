@@ -89,9 +89,10 @@ function OfficeLayout({ user }) {
 
   //搜尋姓名功能
   const handleSearch = () => {
+    const isNumeric = /^\d+$/.test(searchQuery); // 判斷是否為數字
     let found = false;
     if(!searchQuery){
-      alert('請輸入姓名！');
+      alert('請輸入姓名或分機！');
       found = true;
     }
     if(!found){
@@ -99,9 +100,7 @@ function OfficeLayout({ user }) {
         if(i == 5)
           continue;
         const officeData = require(`../data/office${i}.json`);
-        const foundPerson = officeData.find((person) => person.name === searchQuery);
-        document.getElementById(`load_file_${i}`).style.backgroundColor = "white";
-        document.getElementById(`load_file_${i}`).style.color = "#2c3e50";
+        const foundPerson = officeData.find((person) => isNumeric ? person.extension === searchQuery : person.name === searchQuery);
         if (foundPerson) {
           setData(officeData);
           setSelectedPerson(foundPerson);
@@ -109,6 +108,12 @@ function OfficeLayout({ user }) {
           document.getElementById(`load_file_${i}`).style.backgroundColor = "#2c3e50";
           document.getElementById(`load_file_${i}`).style.color = "white";
           document.getElementById(`imgStyle`).className = `img-seating${i}`;
+          for(let j = 1; j <= 6; j++){
+            if(j == i || j == 5)
+              continue;
+            document.getElementById(`load_file_${j}`).style.backgroundColor = "white";
+            document.getElementById(`load_file_${j}`).style.color = "#2c3e50";
+          }
           found = true;
         }
       }
@@ -243,12 +248,17 @@ function OfficeLayout({ user }) {
 
   //更改文字時動態變更頁面
   const handleEdit = (field, value) => {
-    if (!selectedPerson) return;
+    if (!selectedPerson)
+      return;
     clearInputFile();
     const newData = data.map((person) =>
       //以座位的index判斷要改變哪個座位的資料
       person.index === selectedPerson.index ? { ...person, [field]: value } : person
     );
+    /*
+    document.getElementById(`seating_${selectedPerson.index}`).style.backgroundColor = "#2c3e50";
+    document.getElementById(`seating_${selectedPerson.index}`).style.color = "white";
+    */
     setData(newData);
     setSelectedPerson({ ...selectedPerson, [field]: value });
   };
@@ -351,9 +361,14 @@ function OfficeLayout({ user }) {
         <input
           className="txt-input"
           type="text"
-          placeholder="輸入姓名「全名」搜尋"
+          placeholder="輸入姓名「全名」或是分機「三碼」搜尋"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}>
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            handleSearch(e.target.value.trim());
+          }
+        }}>
         </input>
       </div>
         <button className="other-button search-input" onClick={handleSearch}>搜尋</button>
@@ -364,6 +379,7 @@ function OfficeLayout({ user }) {
         {data.map((person, index) => (
           <div
             key={index}
+            id={"seating_"+index}
             className={ `seat ${ person === selectedPerson ? 'seat-selected' : ''}
             ${ swapMode ? 'swap-mode' : ''} 
             ${ swapCandidates.includes(person) ? 'swap-selected' : ''}
@@ -565,7 +581,7 @@ function OfficeLayout({ user }) {
               )}
             </div>
           )}
-          <button onClick={() => setSelectedPerson(null)} className="other-button">關閉</button>
+          <button onClick={ () => setSelectedPerson(null)} className="other-button">關閉</button>
         </div>
       )}
     </div>
