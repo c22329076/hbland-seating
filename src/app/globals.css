@@ -72,7 +72,7 @@ body:before{
   bottom: 0;
   left: 0;
   right: 0;
-  background:  url(../img/watermark.jpg);
+  background:  url(../img/watermark.png);
   background-position: center;  
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -221,17 +221,10 @@ h1{
   margin-right: 5px;
 }
 
-.header-image {
-  width: 20%;
-  height: auto;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 .img-seating1 {
   content: ' ';
   position: absolute;
+  right: 0;
   width: 100%;
   height: 120%;
   border-radius: 20px;
@@ -240,11 +233,13 @@ h1{
   background-repeat: no-repeat;
   z-index: -1;
   opacity: 0.8;
+  transition: all .3s;
 }
 
 .img-seating2 {
   content: ' ';
   position: absolute;
+  right: 0;
   width: 100%;
   height: 120%;
   border-radius: 20px;
@@ -253,11 +248,13 @@ h1{
   background-repeat: no-repeat;
   z-index: -1;
   opacity: 0.8;
+  transition: all .3s;
 }
 
 .img-seating3 {
   content: ' ';
   position: absolute;
+  right: 0;
   width: 100%;
   height: 120%;
   border-radius: 20px;
@@ -266,11 +263,13 @@ h1{
   background-repeat: no-repeat;
   z-index: -1;
   opacity: 0.8;
+  transition: all .3s;
 }
 
 .img-seating4 {
   content: ' ';
   position: absolute;
+  right: 0;
   width: 100%;
   height: 120%;
   border-radius: 20px;
@@ -279,11 +278,13 @@ h1{
   background-repeat: no-repeat;
   z-index: -1;
   opacity: 0.8;
+  transition: all .3s;
 }
 
 .img-seating6 {
   content: ' ';
   position: absolute;
+  right: 0;
   width: 100%;
   height: 120%;
   border-radius: 20px;
@@ -292,6 +293,7 @@ h1{
   background-repeat: no-repeat;
   z-index: -1;
   opacity: 0.8;
+  transition: all .3s;
 }
 
 nextjs-portal{
