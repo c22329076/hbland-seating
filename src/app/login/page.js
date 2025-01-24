@@ -33,7 +33,7 @@ function LoginPage() {
         let username = usernameInput.includes('\\') ? usernameInput.split('\\')[1].toUpperCase() : usernameInput.toUpperCase();
 
         try {
-            const loginTime = new Date().toLocaleDateString('zh-TW');
+            const loginTime = new Date().toLocaleString('zh-TW', {hour12: false});
             const response = await fetch('/api/login', {
                 method: 'POST',
                 headers: {
@@ -54,13 +54,13 @@ function LoginPage() {
                 setErrorMessage('');
                 router.repleace('/');
             } else {
-                setErrorMessage('帳號密碼錯誤');
+                setErrorMessage('登入失敗，請稍後再試');
             }
         } catch (error) {
             console.error('Login failed:', error);
             //setErrorMessage('登入失敗，請稍後再試');
 
-            location.reload();//重新整理 我作弊==
+            await location.reload();//重新整理 我作弊==
         } finally {
             setIsLoading(false);
         }
