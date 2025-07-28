@@ -87,41 +87,77 @@ function OfficeLayout({ user }) {
   };
   const isAdmin = user.role === 'admin';
 
-  //搜尋姓名功能
+  //搜尋功能
   const handleSearch = () => {
-    const isNumeric = /^\d+$/.test(searchQuery); // 判斷是否為數字
-    let found = false;
-    if(!searchQuery){
-      alert('請輸入姓名或分機！');
-      found = true;
-    }
-    if(!found){
-      for (let i = 1; i <= 6; i++) {
-        if(i == 5)
-          continue;
-        const officeData = require(`../data/office${i}.json`);
-        const foundPerson = officeData.find((person) => isNumeric ? person.extension === searchQuery : person.name === searchQuery);
-        if (foundPerson) {
-          setData(officeData);
-          setSelectedPerson(foundPerson);
-          setActiveFile(i);
-          document.getElementById(`load_file_${i}`).style.backgroundColor = "#2c3e50";
-          document.getElementById(`load_file_${i}`).style.color = "white";
-          document.getElementById(`imgStyle`).className = `img-seating${i}`;
-          for(let j = 1; j <= 6; j++){
-            if(j == i || j == 5)
-              continue;
-            document.getElementById(`load_file_${j}`).style.backgroundColor = "white";
-            document.getElementById(`load_file_${j}`).style.color = "#2c3e50";
-          }
-          found = true;
-        }
+  const input = searchQuery.trim().toLowerCase();
+  if (!input) {
+    alert('請輸入姓名、分機、主機或螢幕財產編號');
+    return;
+  }
+
+  const isNumeric = /^\d+$/.test(input);
+  const lastSixRegex = /\d{6}$/;
+
+  let found = false;
+
+  for (let i = 1; i <= 6; i++) {
+    if (i === 5) continue;
+
+    const officeData = require(`../data/office${i}.json`);
+
+    const foundPerson = officeData.find((person) => {
+      // 姓名
+      if (person.name === input) return true;
+
+      // 分機
+      if (isNumeric && person.extension === input) return true;
+
+      // 主機與螢幕
+      const deviceFields = [person.hbweb, person.hbland, person.monitor1, person.monitor2];
+
+      return deviceFields.some(field => {
+        if (!field) return false;
+
+        const fieldLower = field.toLowerCase();
+
+        // 完整比對
+        if (fieldLower === input) return true;
+
+        // 序號
+        const match = fieldLower.match(/\(([^)]+)\)/);
+        const serial = match ? match[1] : null;
+        if (serial && serial.toLowerCase() === input) return true;
+
+        // 六碼尾碼
+        if (isNumeric && input.length === 6 && fieldLower.endsWith(input)) return true;
+
+        return false;
+      });
+    });
+
+    if (foundPerson) {
+      handleLoadJson(i);
+      setSelectedPerson(foundPerson);
+      setActiveFile(i);
+
+      document.getElementById(`load_file_${i}`).style.backgroundColor = "#2c3e50";
+      document.getElementById(`load_file_${i}`).style.color = "white";
+      document.getElementById(`imgStyle`).className = `img-seating${i}`;
+      for (let j = 1; j <= 6; j++) {
+        if (j === i || j === 5) continue;
+        document.getElementById(`load_file_${j}`).style.backgroundColor = "white";
+        document.getElementById(`load_file_${j}`).style.color = "#2c3e50";
       }
+
+      found = true;
+      break;
     }
-    if (!found) {
-      alert('找不到該人員！請確認是否為全名或是有錯字！');
-    }
-  };
+  }
+
+  if (!found) {
+    alert('找不到對應人員或設備！請確認輸入是否正確。');
+  }
+};
 
   //交換模式
   const handleSwapClick = () => {
@@ -361,7 +397,7 @@ function OfficeLayout({ user }) {
         <input
           className="txt-input"
           type="text"
-          placeholder="輸入姓名「全名」或是分機「三碼」搜尋"
+          placeholder="輸入姓名「全名」、分機「三碼」、財產編號「後六碼」搜尋"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={(e) => {
