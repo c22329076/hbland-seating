@@ -180,8 +180,6 @@ function OfficeLayout({ user }) {
       alert('找不到對應人員或設備！請確認輸入是否正確。');
     }
   };
-  
-  
 
   //交換模式
   const handleSwapClick = () => {
