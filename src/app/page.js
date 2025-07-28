@@ -59,6 +59,11 @@ function OfficeLayout({ user }) {
   const [data, setData] = useState(require('../data/office1.json'));
   const [selectedPerson, setSelectedPerson] = useState(null);
   const [activeFile, setActiveFile] = useState(1); // Active JSON file
+
+  useEffect(() => {
+    handleLoadJson(1);
+  }, []);
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [swapMode, setSwapMode] = useState(false);
   const [swapCandidates, setSwapCandidates] = useState([]);
@@ -71,6 +76,7 @@ function OfficeLayout({ user }) {
 //    hbland: true,
 //    monitor1: true,
 //    monitor2: true,
+//    ip: true
   });
   const columnTranslations = {
     index: '編號',
@@ -82,6 +88,7 @@ function OfficeLayout({ user }) {
     hbland: '外網主機',
     monitor1: '螢幕',
     monitor2: '螢幕2',
+    ip: 'IP位址',
     top: '座標Y',
     left: '座標X',
   };
@@ -89,75 +96,92 @@ function OfficeLayout({ user }) {
 
   //搜尋功能
   const handleSearch = () => {
-  const input = searchQuery.trim().toLowerCase();
-  if (!input) {
-    alert('請輸入姓名、分機、主機或螢幕財產編號');
-    return;
-  }
-
-  const isNumeric = /^\d+$/.test(input);
-  const lastSixRegex = /\d{6}$/;
-
-  let found = false;
-
-  for (let i = 1; i <= 6; i++) {
-    if (i === 5) continue;
-
-    const officeData = require(`../data/office${i}.json`);
-
-    const foundPerson = officeData.find((person) => {
-      // 姓名
-      if (person.name === input) return true;
-
-      // 分機
-      if (isNumeric && person.extension === input) return true;
-
-      // 主機與螢幕
-      const deviceFields = [person.hbweb, person.hbland, person.monitor1, person.monitor2];
-
-      return deviceFields.some(field => {
-        if (!field) return false;
-
-        const fieldLower = field.toLowerCase();
-
-        // 完整比對
-        if (fieldLower === input) return true;
-
-        // 序號
-        const match = fieldLower.match(/\(([^)]+)\)/);
-        const serial = match ? match[1] : null;
-        if (serial && serial.toLowerCase() === input) return true;
-
-        // 六碼尾碼
-        if (isNumeric && input.length === 6 && fieldLower.endsWith(input)) return true;
-
-        return false;
-      });
-    });
-
-    if (foundPerson) {
-      handleLoadJson(i);
-      setSelectedPerson(foundPerson);
-      setActiveFile(i);
-
-      document.getElementById(`load_file_${i}`).style.backgroundColor = "#2c3e50";
-      document.getElementById(`load_file_${i}`).style.color = "white";
-      document.getElementById(`imgStyle`).className = `img-seating${i}`;
-      for (let j = 1; j <= 6; j++) {
-        if (j === i || j === 5) continue;
-        document.getElementById(`load_file_${j}`).style.backgroundColor = "white";
-        document.getElementById(`load_file_${j}`).style.color = "#2c3e50";
-      }
-
-      found = true;
-      break;
+    const input = searchQuery.trim().toLowerCase(); // 統一轉小寫比對
+    if (!input) {
+      alert('請輸入姓名、分機、主機或螢幕財產編號');
+      return;
     }
-  }
+  
+    const isNumeric = /^\d+$/.test(input);
+    const lastSixRegex = /\d{6}$/;
+  
+    let found = false;
+  
+    for (let i = 1; i <= 6; i++) {
+      if (i === 5) continue;
+  
+      const officeData = require(`../data/office${i}.json`);
+  
+      const foundPerson = officeData.find((person) => {
+        // 姓名
+        if (person.name === input) return true;
+  
+        // 分機
+        if (isNumeric && person.extension === input) return true;
+  
+        // 主機與螢幕
+        const normalize = (val) => {
+          if (!val) return [];
+          return Array.isArray(val) ? val : [val];
+        };
+        
+        const deviceFields = [
+          ...normalize(person.hbweb),
+          ...normalize(person.hbland),
+          ...normalize(person.monitor1),
+          ...normalize(person.monitor2)
+        ];
+  
+        return deviceFields.some(field => {
+          if (!field) return false;
+  
+          const fieldLower = field.toLowerCase();
+  
+          // 完整比對
+          if (fieldLower === input) return true;
 
-  if (!found) {
-    alert('找不到對應人員或設備！請確認輸入是否正確。');
-  }
-};
+          // 擷取租賃/括號內序號
+          const match = fieldLower.match(/\(([^)]+)\)/);
+          const serial = match ? match[1].toLowerCase() : null;
+  
+          // 只輸入序號
+          if (serial && serial === input) return true;
+
+          // 序號尾數六碼比對
+          if (serial && input.length === 6 && serial.endsWith(input)) return true;
+  
+          // 六碼數字
+          if (input.length === 6 && fieldLower.endsWith(input)) return true;
+  
+          return false;
+        });
+      });
+  
+      if (foundPerson) {
+        handleLoadJson(i);
+        setSelectedPerson(foundPerson);
+        setActiveFile(i);
+  
+        document.getElementById(`load_file_${i}`).style.backgroundColor = "#2c3e50";
+        document.getElementById(`load_file_${i}`).style.color = "white";
+        document.getElementById(`imgStyle`).className = `img-seating${i}`;
+        for (let j = 1; j <= 6; j++) {
+          if (j === i || j === 5) continue;
+          document.getElementById(`load_file_${j}`).style.backgroundColor = "white";
+          document.getElementById(`load_file_${j}`).style.color = "#2c3e50";
+        }
+  
+        found = true;
+        break;
+      }
+    }
+  
+    if (!found) {
+      alert('找不到對應人員或設備！請確認輸入是否正確。');
+    }
+  };
+  
+  
 
   //交換模式
   const handleSwapClick = () => {
@@ -185,6 +209,35 @@ function OfficeLayout({ user }) {
       setSelectedPerson(person);
     }
   };
+
+  //確認該座位人員有無上線
+  const checkAllOnline = async (people) => {
+    for (const person of people) {
+      if (!(person.ip && person.name)) {
+        const seat = document.getElementById(`seating_${person.index}`);
+        if (seat) seat.style.opacity = "0.5";
+        continue;
+      }
+  
+      try {
+        const res = await fetch(`/api/checkPing?ip=${person.ip}`);
+        const { online } = await res.json();
+  
+        setData((prevData) =>
+          prevData.map((p) =>
+            p.index === person.index ? { ...p, online } : p
+          )
+        );
+  
+        const seat = document.getElementById(`seating_${person.index}`);
+        if (seat) seat.style.opacity = online ? "1" : "0.5";
+      } catch (error) {
+        console.error(`檢查 ${person.ip} 發生錯誤`, error);
+        const seat = document.getElementById(`seating_${person.index}`);
+        if (seat) seat.style.opacity = "0.5";
+      }
+    }
+  };  
 
   //確認有無打勾
   const handleFieldChange = (field) => {
@@ -238,6 +291,7 @@ function OfficeLayout({ user }) {
       外網主機: person.hbland,
       螢幕: person.monitor1,
       螢幕2: person.monitor2,
+      IP: person.ip,
       座標Y: person.top,
       座標X: person.left,
     }));
@@ -320,20 +374,29 @@ function OfficeLayout({ user }) {
 
   //切換json
   const handleLoadJson = (fileNumber) => {
-    import(`../data/office${fileNumber}.json`).then((module) => setData(module.default));
-    setSelectedPerson(null);
-    for (let i = 1; i <= 6; i++) {
-      if(i === 5)
-        continue;
-      document.getElementById(`load_file_${i}`).style.backgroundColor = "white";
-      document.getElementById(`load_file_${i}`).style.color = "#2c3e50";
-      }
-    document.getElementById(`load_file_${fileNumber}`).style.backgroundColor = "#2c3e50";
-    document.getElementById(`load_file_${fileNumber}`).style.color = "white";
-    document.getElementById(`imgStyle`).className = `img-seating${fileNumber}`;
-    setActiveFile(fileNumber);
-    clearInputFile();
-  };
+    import(`../data/office${fileNumber}.json`).then((module) => {
+      const jsonData = module.default;
+      setData(jsonData); // 設定狀態用於渲染
+  
+      // 設定完成後立即執行批量檢查
+      checkAllOnline(jsonData);
+    });
+
+  setSelectedPerson(null);
+  
+  for (let i = 1; i <= 6; i++) {
+    if (i === 5) continue;
+    document.getElementById(`load_file_${i}`).style.backgroundColor = "white";
+    document.getElementById(`load_file_${i}`).style.color = "#2c3e50";
+  }
+
+  document.getElementById(`load_file_${fileNumber}`).style.backgroundColor = "#2c3e50";
+  document.getElementById(`load_file_${fileNumber}`).style.color = "white";
+  document.getElementById("imgStyle").className = `img-seating${fileNumber}`;
+  
+  setActiveFile(fileNumber);
+  clearInputFile();
+};
 
   //清除檔案
   function clearInputFile(){
@@ -354,7 +417,7 @@ function OfficeLayout({ user }) {
             router.push('/login');
         })
         console.log("user logout!");
-        location.reload();//重新整理 我作弊==
+        setTimeout("location.reload();", 1000); //重新整理 我作弊==
       };
 
   return (
@@ -603,8 +666,21 @@ function OfficeLayout({ user }) {
               {selectedPerson.task &&(
                 <p>工作內容：{selectedPerson.task}</p>
               )}
-              {selectedPerson.hbweb &&(
-                <p>內網主機：{selectedPerson.hbweb}</p>
+              {selectedPerson.hbweb && (
+                <>
+                  {Array.isArray(selectedPerson.hbweb) ? (
+                    <div>
+                      <p>內網主機：</p>
+                      <ul style={{ paddingLeft: "1em" }}>
+                        {selectedPerson.hbweb.map((host, index) => (
+                          <li key={index}>{host}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
+                    <p>內網主機：{selectedPerson.hbweb}</p>
+                  )}
+                </>  
               )}
               {selectedPerson.hbland &&(
                 <p>外網主機：{selectedPerson.hbland}</p>
@@ -612,8 +688,11 @@ function OfficeLayout({ user }) {
               {selectedPerson.monitor1 &&(
                 <p>螢幕：{selectedPerson.monitor1}</p>
               )}
-              {selectedPerson.monitor1 &&(
+              {selectedPerson.monitor2 &&(
                 <p>螢幕：{selectedPerson.monitor2}</p>
+              )}
+              {selectedPerson.ip &&(
+                <p>IP位址：{selectedPerson.ip}</p>
               )}
             </div>
           )}
