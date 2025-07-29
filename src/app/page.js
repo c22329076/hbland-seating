@@ -96,15 +96,13 @@ function OfficeLayout({ user }) {
 
   //搜尋功能
   const handleSearch = () => {
-    const input = searchQuery.trim().toLowerCase(); // 統一轉小寫比對
+    const input = searchQuery.trim().toLowerCase();
     if (!input) {
       alert('請輸入姓名、分機、主機或螢幕財產編號');
       return;
     }
   
     const isNumeric = /^\d+$/.test(input);
-    const lastSixRegex = /\d{6}$/;
-  
     let found = false;
   
     for (let i = 1; i <= 6; i++) {
@@ -112,19 +110,17 @@ function OfficeLayout({ user }) {
   
       const officeData = require(`../data/office${i}.json`);
   
-      const foundPerson = officeData.find((person) => {
-        // 姓名
-        if (person.name === input) return true;
+      // 將 device 資料標準化為 array
+      const normalize = (val) => {
+        if (!val) return [];
+        return Array.isArray(val) ? val : [val];
+      };
   
-        // 分機
+      // 先嘗試「完整比對」的資料
+      const exactMatchPerson = officeData.find((person) => {
+        if (person.name === input) return true;
         if (isNumeric && person.extension === input) return true;
   
-        // 主機與螢幕
-        const normalize = (val) => {
-          if (!val) return [];
-          return Array.isArray(val) ? val : [val];
-        };
-        
         const deviceFields = [
           ...normalize(person.hbweb),
           ...normalize(person.hbland),
@@ -134,43 +130,63 @@ function OfficeLayout({ user }) {
   
         return deviceFields.some(field => {
           if (!field) return false;
-  
           const fieldLower = field.toLowerCase();
-  
-          // 完整比對
           if (fieldLower === input) return true;
-
-          // 擷取租賃/括號內序號
+  
           const match = fieldLower.match(/\(([^)]+)\)/);
           const serial = match ? match[1].toLowerCase() : null;
-  
-          // 只輸入序號
           if (serial && serial === input) return true;
-
-          // 序號尾數六碼比對
-          if (serial && input.length === 6 && serial.endsWith(input)) return true;
-  
-          // 六碼數字
-          if (input.length === 6 && fieldLower.endsWith(input)) return true;
   
           return false;
         });
       });
   
-      if (foundPerson) {
+      if (exactMatchPerson) {
         handleLoadJson(i);
-        setSelectedPerson(foundPerson);
+        setSelectedPerson(exactMatchPerson);
         setActiveFile(i);
+        highlightButton(i);
+        found = true;
+        break;
+      }
   
-        document.getElementById(`load_file_${i}`).style.backgroundColor = "#2c3e50";
-        document.getElementById(`load_file_${i}`).style.color = "white";
-        document.getElementById(`imgStyle`).className = `img-seating${i}`;
-        for (let j = 1; j <= 6; j++) {
-          if (j === i || j === 5) continue;
-          document.getElementById(`load_file_${j}`).style.backgroundColor = "white";
-          document.getElementById(`load_file_${j}`).style.color = "#2c3e50";
-        }
+      // 若沒找到，再進行「模糊尾碼比對」
+      const fuzzyMatchPerson = officeData.find((person) => {
+        const deviceFields = [
+          ...normalize(person.hbweb),
+          ...normalize(person.hbland),
+          ...normalize(person.monitor1),
+          ...normalize(person.monitor2)
+        ];
   
+        return deviceFields.some(field => {
+          if (!field) return false;
+          const fieldLower = field.toLowerCase();
+  
+          // 擷取序號
+          const match = fieldLower.match(/\(([^)]+)\)/);
+          const serial = match ? match[1].toLowerCase() : null;
+  
+          // 尾碼比對
+          if (
+            (input.length === 5 || input.length === 6) &&
+            (
+              (serial && serial.endsWith(input)) ||
+              fieldLower.endsWith(input)
+            )
+          ) {
+            return true;
+          }
+  
+          return false;
+        });
+      });
+  
+      if (fuzzyMatchPerson) {
+        handleLoadJson(i);
+        setSelectedPerson(fuzzyMatchPerson);
+        setActiveFile(i);
+        highlightButton(i);
         found = true;
         break;
       }
@@ -180,6 +196,20 @@ function OfficeLayout({ user }) {
       alert('找不到對應人員或設備！請確認輸入是否正確。');
     }
   };
+  
+  // 按鈕高亮樣式統一抽出來
+  const highlightButton = (activeIndex) => {
+    document.getElementById(`load_file_${activeIndex}`).style.backgroundColor = "#2c3e50";
+    document.getElementById(`load_file_${activeIndex}`).style.color = "white";
+    document.getElementById(`imgStyle`).className = `img-seating${activeIndex}`;
+  
+    for (let j = 1; j <= 6; j++) {
+      if (j === activeIndex || j === 5) continue;
+      document.getElementById(`load_file_${j}`).style.backgroundColor = "white";
+      document.getElementById(`load_file_${j}`).style.color = "#2c3e50";
+    }
+  };
+  
 
   //交換模式
   const handleSwapClick = () => {
