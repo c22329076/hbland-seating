@@ -91,6 +91,7 @@ function OfficeLayout({ user }) {
     ip: 'IP位址',
     top: '座標Y',
     left: '座標X',
+    _comment: '備註'
   };
   const isAdmin = user.role === 'admin';
 
@@ -721,6 +722,9 @@ function OfficeLayout({ user }) {
               )}
               {selectedPerson.ip &&(
                 <p>IP位址：{selectedPerson.ip}</p>
+              )}
+              {selectedPerson._comment &&(
+                <p>備註：{selectedPerson._comment}</p>
               )}
             </div>
           )}
