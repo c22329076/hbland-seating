@@ -78,7 +78,10 @@ function OfficeLayout({ user }) {
 //    monitor2: true,
 //    ip: true
   });
+  const [showOnlySeats, setShowOnlySeats] = useState(false); //是否顯示座位的狀態
+
   const columnTranslations = {
+    type: '類型',
     index: '編號',
     name: '姓名',
     extension: '分機',
@@ -168,16 +171,17 @@ function OfficeLayout({ user }) {
           const match = fieldLower.match(/\(([^)]+)\)/);
           const serial = match ? match[1].toLowerCase() : null;
   
-          // 尾碼比對
-          if (
-            (input.length === 5 || input.length === 6) &&
-            (
-              (serial && serial.endsWith(input)) ||
-              fieldLower.endsWith(input)
-            )
-          ) {
-            return true;
-          }
+          // 字碼比對
+          if (input.length >= 4 && input.length <= 6) {
+            const tailCheck = (str) => {
+              const tail = str.slice(-6);
+              return tail.includes(input);
+            };
+          
+            if ((serial && tailCheck(serial)) || tailCheck(fieldLower)) {
+              return true;
+            }
+          }          
   
           return false;
         });
@@ -244,7 +248,7 @@ function OfficeLayout({ user }) {
     for (const person of people) {
       if (!(person.ip && person.name)) {
         const seat = document.getElementById(`seating_${person.index}`);
-        if (seat) seat.style.opacity = "0.5";
+        if (seat) seat.style.opacity = "1";
         continue;
       }
   
@@ -311,6 +315,7 @@ function OfficeLayout({ user }) {
   //將現有頁面輸出成Excel
   const handleExportToExcel = () => {
     const transformedData = data.map((person, index) => ({
+      類型: person.type,
       編號: index,
       姓名: person.name,
       分機: person.extension,
@@ -462,7 +467,7 @@ function OfficeLayout({ user }) {
         <li onClick={ onSignoutClicked } className="switch-seat-button" style={{top: "82vh"}}>登出</li>
       </ul>
       {isAdmin && (
-        <div className="switch-group">  
+        <div className="switch-group">
           {/*
           <button onClick={handleExport} className="other-button">
             <span className="icon export-icon"></span>生成程式檔
@@ -503,21 +508,41 @@ function OfficeLayout({ user }) {
         <div>
           <img className='img-seating1' id='imgStyle'/>
         </div>
+        <div>
+          {/*顯示勾選欄*/}
+          <div className="filter-container">
+            <label>
+              <input
+                type="checkbox"
+                checked={showOnlySeats}
+                onChange={(e) => setShowOnlySeats(e.target.checked)}
+              />
+              只顯示座位
+            </label>
+          </div>          
+
+          {/*座位格子*/}
       <div className="grid">
-        {data.map((person, index) => (
-          <div
-            key={index}
-            id={"seating_"+index}
-            className={ `seat ${ person === selectedPerson ? 'seat-selected' : ''}
-            ${ swapMode ? 'swap-mode' : ''} 
-            ${ swapCandidates.includes(person) ? 'swap-selected' : ''}
-            `}
-            style={{ position: 'absolute', top: person.top, left: person.left }}
-            onClick={() => handleSeatClick(person)}
-          >
-            <p>{person.name}</p>
-          </div>
-        ))}
+        {data.filter((person) => !showOnlySeats || person.type === "seat").map((person, index) => {
+          // 根據 JSON 的 type 加上對應 class
+          const typeClass = person.type ? `seat-${person.type}` : "seat";
+          return (
+            <div
+              key={index}
+              id={`seating_${index}`}
+              className={`seat ${typeClass}
+                ${person === selectedPerson ? 'seat-selected' : ''}
+                ${swapMode ? 'swap-mode' : ''} 
+                ${swapCandidates.includes(person) ? 'swap-selected' : ''}
+              `}
+              style={{ position: 'absolute', top: person.top, left: person.left }}
+              onClick={() => handleSeatClick(person)}
+            >
+              <p>{person.name}</p>
+            </div>
+          );
+        })}
+      </div>
       </div>
       {swapMode && (
         <div className="swap-options">
