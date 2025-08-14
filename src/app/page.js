@@ -109,7 +109,7 @@ function OfficeLayout({ user }) {
     const isNumeric = /^\d+$/.test(input);
     let found = false;
   
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 7; i++) {
       if (i === 5) continue;
   
       const officeData = require(`../data/office${i}.json`);
@@ -208,7 +208,7 @@ function OfficeLayout({ user }) {
     document.getElementById(`load_file_${activeIndex}`).style.color = "white";
     document.getElementById(`imgStyle`).className = `img-seating${activeIndex}`;
   
-    for (let j = 1; j <= 6; j++) {
+    for (let j = 1; j <= 7; j++) {
       if (j === activeIndex || j === 5) continue;
       document.getElementById(`load_file_${j}`).style.backgroundColor = "white";
       document.getElementById(`load_file_${j}`).style.color = "#2c3e50";
@@ -418,7 +418,7 @@ function OfficeLayout({ user }) {
 
   setSelectedPerson(null);
   
-  for (let i = 1; i <= 6; i++) {
+  for (let i = 1; i <= 7; i++) {
     if (i === 5) continue;
     document.getElementById(`load_file_${i}`).style.backgroundColor = "white";
     document.getElementById(`load_file_${i}`).style.color = "#2c3e50";
@@ -463,8 +463,9 @@ function OfficeLayout({ user }) {
         <li onClick={() => handleLoadJson(3)} className="switch-seat-button" style={{top: "33vh"}} id="load_file_3">三樓座位表</li>
         <li onClick={() => handleLoadJson(4)} className="switch-seat-button" style={{top: "44vh"}} id="load_file_4">四樓座位表</li>
         <li onClick={() => handleLoadJson(6)} className="switch-seat-button" style={{top: "55vh"}} id="load_file_6">六樓座位表</li>
-        <li onClick={ ruturnBack } className="switch-seat-button" style={{top: "71vh"}}>回上一頁</li>
-        <li onClick={ onSignoutClicked } className="switch-seat-button" style={{top: "82vh"}}>登出</li>
+        <li onClick={() => handleLoadJson(7)} className="switch-seat-button" style={{top: "66vh"}} id="load_file_7">電腦教室</li>
+        <li onClick={ ruturnBack } className="switch-seat-button" style={{top: "79vh"}}>回上一頁</li>
+        <li onClick={ onSignoutClicked } className="switch-seat-button" style={{top: "90vh"}}>登出</li>
       </ul>
       {isAdmin && (
         <div className="switch-group">
